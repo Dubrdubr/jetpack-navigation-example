@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="green_box">green box</string>
+    <string name="yellow_box">Yellow box</string>
+    <string name="this_is_a_box">This is a box</string>
+    <string name="go_back">go back</string>
+    <string name="open_secret">open secret</string>
+    <string name="generate_number">generate number</string>
+    <string name="this_is_a_secret_place">this is a secret place</string>
+    <string name="close_the_whole_box">close the whole box</string>
 </resources>
