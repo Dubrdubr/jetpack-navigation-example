@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/rootFragment"
         android:name="ru.dubr.jetpacknavigation.RootFragment"
-        android:label="fragment_root"
+        android:label="Root"
         tools:layout="@layout/fragment_root" >
         <action
             android:id="@+id/action_rootFragment_to_boxFragment"
@@ -19,15 +19,21 @@
     <fragment
         android:id="@+id/boxFragment"
         android:name="ru.dubr.jetpacknavigation.BoxFragment"
-        android:label="fragment_box"
+        android:label="{colorName} Box"
         tools:layout="@layout/fragment_box" >
         <action
             android:id="@+id/action_boxFragment_to_secretFragment"
             app:destination="@id/secretFragment" />
+        <argument
+            android:name="color"
+            app:argType="integer" />
+        <argument
+            android:name="colorName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/secretFragment"
         android:name="ru.dubr.jetpacknavigation.SecretFragment"
-        android:label="fragment_secret"
+        android:label="Secret"
         tools:layout="@layout/fragment_secret" />
 </navigation>

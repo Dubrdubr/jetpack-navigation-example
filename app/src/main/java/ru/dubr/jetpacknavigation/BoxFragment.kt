@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import ru.dubr.jetpacknavigation.databinding.FragmentBoxBinding
 import kotlin.random.Random
 
@@ -12,19 +13,20 @@ class BoxFragment : Fragment(R.layout.fragment_box) {
 
     private var fragmentBoxBinding: FragmentBoxBinding? = null
 
+    private val args: BoxFragmentArgs by navArgs()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentBoxBinding.bind(view)
         fragmentBoxBinding = binding
 
-        val color = requireArguments().getInt(ARG_COLOR)
-        binding.root.setBackgroundColor(color)
+        binding.root.setBackgroundColor(args.color)
 
         binding.goBackButton.setOnClickListener {
             findNavController().popBackStack()
         }
         binding.openSecretButton.setOnClickListener {
-            findNavController().navigate(R.id.action_boxFragment_to_secretFragment)
+            findNavController().navigate(BoxFragmentDirections.actionBoxFragmentToSecretFragment())
         }
         binding.generateNumberButton.setOnClickListener {
             val number = Random.nextInt(100)
@@ -42,7 +44,6 @@ class BoxFragment : Fragment(R.layout.fragment_box) {
     }
 
     companion object {
-        const val ARG_COLOR = "ARG_COLOR"
 
         const val REQUEST_CODE = "RANDOM_NUMBER_REQUEST_CODE"
         const val EXTRA_RANDOM_NUMBER = "EXTRA_RANDOM_NUMBER"
